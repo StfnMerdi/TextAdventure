@@ -1,0 +1,1 @@
+{"version":3,"file":"UserInterface.js","sourceRoot":"","sources":["../src/UserInterface.ts"],"names":[],"mappings":";;;;;;;;;;;;;AAAA,sDAA8B;AAC9B,sCAAsC;AACtC,MAAa,aAAa;IAItB,YAAY,OAA0B;QAC/B,IAAI,CAAC,OAAO,GAAG,OAAO,CAAC;IAC9B,CAAC;IAGK,QAAQ;;YACV,IAAI,QAAQ,GAAG,MAAM,iBAAO,CAAC,IAAI,CAAC,OAAO,CAAC,CAAC;YAC3C,OAAO,QAAQ,CAAC;QACpB,CAAC;KAAA;CACJ;AAbD,sCAaC"}

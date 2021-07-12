@@ -1,0 +1,32 @@
+{
+  "name": "textadventure",
+  "version": "1.0.0",
+  "description": "A TextAdventure project for SoftwareDesign",
+  "main": "dist/test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StfnMerdi/TextAdventure.git"
+  },
+  "author": "Stefan Merdian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StfnMerdi/TextAdventure/issues"
+  },
+  "bin": {
+    "hello": "/dist/test.js"
+  },
+  "homepage": "https://github.com/StfnMerdi/TextAdventure#readme",
+  "devDependencies": {
+    "@types/prompts": "^2.0.14",
+    "tslint": "^5.12.1",
+    "typescript": "^3.3.3"
+  },
+  "dependencies": {
+    "boxen": "4.0",
+    "chalk": "2.4",
+    "prompts": "^2.4.1"
+  }
+}
