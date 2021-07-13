@@ -4,13 +4,13 @@ export class UserInterface {
     private prompts: any;
     private options: any;
 
-    constructor(options: optionsForPrompts) {
-           this.options = options;
+    constructor(options: any) {
+        this.options = options;
     }
 
 
-    async response(): Promise<prompts.Answers<string>> {
+    public async response(): Promise<string> {
         let response = await prompts(this.options);
-        return response;
+        return response.value;
     }
 }
