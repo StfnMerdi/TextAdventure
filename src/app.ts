@@ -1,8 +1,9 @@
 // import chalk from 'chalk';
 // import boxen from 'boxen';
 import { UserInterface } from './View/UserInterface';
-import { MainController } from './Controller/MainController';
+import { UnregisteredUserController } from './Controller/UnregisteredUserController';
 import prompts from 'prompts';
+import { Model } from './Model/Model';
 
 // let greeting = chalk.white.bold("gzugbzugbzu!");
 
@@ -17,13 +18,8 @@ import prompts from 'prompts';
 // console.log(msgBox);
 
 
-let x: MainController = new MainController();
+let x: UnregisteredUserController = new UnregisteredUserController();
 x.startApp();
 
-// async function hallo(): Promise<void> {
-//     let y = await x.response();
-//     if (y.value == "#0000ff") {
-//         console.log("ficker");
-//     } else console.log(y.value);
-// }
+
 

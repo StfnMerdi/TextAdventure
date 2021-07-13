@@ -1,0 +1,18 @@
+[
+    {
+        "title": "Test",
+        "creator": "admin",
+        "gamePlaces": [
+            {
+                "positionX": 1,
+                "positionY": 1,
+                "placename": "Stuttgart"
+            },
+            {
+                "positionX": 2,
+                "positionY": 1,
+                "placename": "Berlin"
+            }
+        ]
+    }
+]

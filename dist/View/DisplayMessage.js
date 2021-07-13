@@ -11,6 +11,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const UserInterface_1 = require("./UserInterface");
 class DisplayMessage {
     constructor() {
+        this.games = [];
     }
     startApp() {
         return __awaiter(this, void 0, void 0, function* () {
@@ -19,21 +20,48 @@ class DisplayMessage {
                 name: 'value',
                 message: 'App is started. What do you want to do?',
                 choices: [
-                    { title: 'search TextAdventures', description: 'You can search with title name', value: 'search' },
-                    { title: 'show TextAdventures', value: 'show', description: 'Display the TextAdventures' },
+                    { title: 'search TextAdventure', description: 'You can search with title name', value: 'searchForTextAdventure' },
+                    { title: 'show TextAdventures', value: 'showTextAdventures', description: 'Display the TextAdventures' },
                     { title: 'login', value: 'login', description: 'If you have alraedy an account' },
-                    { title: 'registration', value: 'registartion' },
+                    { title: 'registration', value: 'registration' },
                 ],
-                initial: 1
+                initial: 0
             });
-            let uiTask = new UserInterface_1.UserInterface(this.uiOptions);
-            return uiTask.response();
+            return this.sendResponse(this.uiOptions);
+        });
+    }
+    searchForTextAdventure() {
+        return __awaiter(this, void 0, void 0, function* () {
+            this.setOptionsForUi({
+                type: 'autocomplete',
+                name: 'value',
+                message: 'Type the titles of TextAdventures',
+                limit: 1,
+                choices: this.loadChoices(),
+                style: 'default',
+            });
+            return this.sendResponse(this.uiOptions);
         });
     }
     setOptionsForUi(uioptions) {
         this.uiOptions = uioptions;
     }
-    initUI(uiOptions) {
+    sendResponse(uiOptions) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let uiTask = new UserInterface_1.UserInterface(this.uiOptions);
+            return uiTask.response();
+        });
+    }
+    loadChoices() {
+        let temporaryChoices = [];
+        this.games.forEach(element => {
+            let obj = { title: element.gameTitle, value: element.gameTitle };
+            temporaryChoices.push(obj);
+        });
+        return temporaryChoices;
+    }
+    getDataFromModel(games) {
+        this.games = games;
     }
 }
 exports.DisplayMessage = DisplayMessage;
