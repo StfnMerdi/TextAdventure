@@ -1,10 +1,13 @@
 // import { gamePlaces } from './types/gamePlacesInterface';
 import { GamePlaces } from './GamePlaces';
-import { GameDAO } from './types/gamedao.type';
+import { GameDAO } from '../types/gamedao.type';
 export class Game {
     private title: String;
     private creator: String;
     private gamePlaces: GamePlaces[];
+    private xPositions: number[] = [];
+    private yPositions: number[] = [];
+    private titlesOfCurrentPosition: String[][] = [];
 
 
     constructor(game?: GameDAO) {
@@ -43,6 +46,10 @@ export class Game {
         this.gamePlaces = value;
     }
 
+    public get playableGame() {
+        return this.titlesOfCurrentPosition;
+    }
+
     private generateGamePlaces(_gamePlaces: GamePlaces[]): GamePlaces[] {
         let temporaryGamePlaces: GamePlaces[] = [];
         _gamePlaces.forEach(element => {
@@ -51,5 +58,42 @@ export class Game {
         });
         return temporaryGamePlaces;
     }
+
+    public createGame(): void {
+
+    }
+
+    public makeGamePlayable(): void {
+        let xHighestValue = this.getHighesValueOfX();
+        let YHighestValue = this.getHighesValueOfY();
+        let index: number = 0;
+        for (let i = 0; i < xHighestValue; i++) {
+            for (let j = 0; j < YHighestValue; j++) {
+                this.titlesOfCurrentPosition[i][j] = this.gamePlaces[index].titelOfplacename;
+                index++;
+            }
+        }
+    }
+
+    private getHighesValueOfX(): number {
+        this.xPositions = [];
+        this.gamePlaces.forEach(element => {
+            this.xPositions.push(element.valueOfX);
+        });
+        this.xPositions = this.xPositions.sort((n1, n2) => n1 - n2);
+        return this.xPositions[this.xPositions.length - 1];
+    }
+
+    private getHighesValueOfY(): number {
+        this.yPositions = [];
+        this.gamePlaces.forEach(element => {
+            this.yPositions.push(element.valueOfY);
+        });
+        this.yPositions = this.yPositions.sort((n1, n2) => n1 - n2);
+        return this.yPositions[this.yPositions.length - 1];
+    }
+
+
+
 
 }

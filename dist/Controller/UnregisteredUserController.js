@@ -9,16 +9,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const Model_1 = require("./../Model/Model");
-const DisplayMessage_1 = require("../View/DisplayMessage");
+const View_1 = require("../View/View");
 class UnregisteredUserController {
     constructor() {
         this.response = "";
-        this.displayObject = new DisplayMessage_1.DisplayMessage();
-        this.modelObject = new Model_1.Model(this.displayObject);
+        this.viewObject = new View_1.View();
+        this.modelObject = new Model_1.Model(this.viewObject);
     }
     startApp() {
         return __awaiter(this, void 0, void 0, function* () {
-            this.response = yield this.displayObject.startApp();
+            this.response = yield this.viewObject.startApp();
             this.decisiontree(this.response);
         });
     }
@@ -46,9 +46,10 @@ class UnregisteredUserController {
     }
     searchForTextAdventure() {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log("Unregistered 35 searchForTextAdventure");
-            this.response = yield this.displayObject.searchForTextAdventure();
-            console.log(this.response);
+            console.log("searchForTextAdventure");
+            this.response = yield this.viewObject.searchForTextAdventure();
+            this.modelObject.searchGame(this.response);
+            // this.viewObject.loadGame();
         });
     }
     showTextAdventures() {

@@ -6,12 +6,14 @@
             {
                 "positionX": 1,
                 "positionY": 1,
-                "placename": "Stuttgart"
+                "placename": "Stuttgart",
+                "startpoint": "false"
             },
             {
                 "positionX": 2,
                 "positionY": 1,
-                "placename": "Berlin"
+                "placename": "Berlin",
+                "startpoint": "true"
             }
         ]
     }

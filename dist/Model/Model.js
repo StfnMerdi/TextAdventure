@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const FileHandler_1 = __importDefault(require("./FileHandler"));
-const Game_1 = require("./Game");
+const Game_1 = require("./classes/Game");
 class Model {
     constructor(viewObject) {
         this.games = [];
@@ -16,7 +16,20 @@ class Model {
         this.sendData();
     }
     sendData() {
-        this.viewObject.getDataFromModel(this.games);
+        this.viewObject.getgamesDataFromModel(this.games);
+    }
+    searchGame(gametitel) {
+        let index = 0;
+        for (let i = 0; i < this.games.length; i++) {
+            if (gametitel == this.games[i].gameTitle) {
+                index = i;
+                this.sendGame(index);
+            }
+        }
+    }
+    sendGame(index) {
+        this.games[index].makeGamePlayable();
+        this.viewObject.getPlayableGameFromModel(this.games[index].playableGame);
     }
 }
 exports.Model = Model;

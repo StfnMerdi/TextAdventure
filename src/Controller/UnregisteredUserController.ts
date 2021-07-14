@@ -1,18 +1,18 @@
 import { Model } from './../Model/Model';
-import { DisplayMessage } from '../View/DisplayMessage';
+import { View } from '../View/View';
 
 export class UnregisteredUserController {
-    private displayObject: DisplayMessage;
+    private viewObject: View;
     private modelObject: Model;
     private response: String = "";
 
     constructor() {
-        this.displayObject = new DisplayMessage();
-        this.modelObject = new Model(this.displayObject);
+        this.viewObject = new View();
+        this.modelObject = new Model(this.viewObject);
     }
 
     public async startApp(): Promise<void> {
-        this.response = await this.displayObject.startApp();
+        this.response = await this.viewObject.startApp();
         this.decisiontree(this.response);
 
     }
@@ -41,11 +41,12 @@ export class UnregisteredUserController {
     }
 
     private async searchForTextAdventure(): Promise<void> {
-        console.log("Unregistered 35 searchForTextAdventure");
-        this.response = await this.displayObject.searchForTextAdventure();
-        console.log(this.response);
+        console.log("searchForTextAdventure");
+        this.response = await this.viewObject.searchForTextAdventure();
+        this.modelObject.searchGame(this.response);
+        // this.viewObject.loadGame();
     }
-    
+
     private showTextAdventures() {
         console.log("showTextAdventures");
     }
@@ -53,7 +54,7 @@ export class UnregisteredUserController {
     private login(): void {
         throw new Error('Method not implemented.');
     }
-    
+
     private registration(): void {
         throw new Error('Method not implemented.');
     }

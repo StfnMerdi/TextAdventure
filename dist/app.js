@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const UnregisteredUserController_1 = require("./Controller/UnregisteredUserController");
 // let greeting = chalk.white.bold("gzugbzugbzu!");
 // let boxenOptions: boxen.Options = {
 //  padding: 1,
@@ -10,6 +9,12 @@ const UnregisteredUserController_1 = require("./Controller/UnregisteredUserContr
 // };
 // let msgBox = boxen( greeting, boxenOptions );
 // console.log(msgBox);
-let x = new UnregisteredUserController_1.UnregisteredUserController();
-x.startApp();
+// let x: UnregisteredUserController = new UnregisteredUserController();
+// x.startApp();
+console.log(getHighesValueOfx());
+function getHighesValueOfx() {
+    let xPositions = [213, 21, 43, 3, 5, 1];
+    xPositions = xPositions.sort((n1, n2) => n1 - n2);
+    return xPositions[xPositions.length - 1];
+}
 //# sourceMappingURL=app.js.map

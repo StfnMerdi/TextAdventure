@@ -1,11 +1,20 @@
-import { Game } from '../Model/Game';
+import { Game } from '../Model/classes/Game';
 import { UserInterface } from './UserInterface';
 
-export class DisplayMessage {
+export class View {
     private uiOptions: any;
     private games: Game[] = [];
+    private playablegame: String[][] = [];
 
     constructor() {
+    }
+
+    public getgamesDataFromModel(games: Game[]): void {
+        this.games = games;
+    }
+
+    public getPlayableGameFromModel(playableGame: String[][]) {
+        this.playablegame = playableGame;
     }
 
     public async startApp(): Promise<string> {
@@ -21,7 +30,7 @@ export class DisplayMessage {
             ],
             initial: 0
         });
-        return this.sendResponse(this.uiOptions);
+        return this.sendResponse();
     }
 
     public async searchForTextAdventure(): Promise<string> {
@@ -33,17 +42,20 @@ export class DisplayMessage {
             choices: this.loadChoices(),
             style: 'default',
         })
-        return this.sendResponse(this.uiOptions);
+        return this.sendResponse();
     }
+
+    // public async loadGame():
 
     private setOptionsForUi(uioptions: any): void {
         this.uiOptions = uioptions;
     }
 
-    private async sendResponse(uiOptions: any): Promise<string> {
+    private async sendResponse(): Promise<string> {
         let uiTask = new UserInterface(this.uiOptions);
         return uiTask.response();
     }
+
     private loadChoices(): any[] {
         let temporaryChoices: any[] = [];
         this.games.forEach(element => {
@@ -53,8 +65,8 @@ export class DisplayMessage {
         return temporaryChoices;
     }
 
-    public getDataFromModel(games: Game[]): void {
-        this.games = games;
-    }
+    
+
+
 
 }

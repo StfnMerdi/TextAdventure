@@ -14,6 +14,12 @@ class View {
         this.games = [];
         this.playablegame = [];
     }
+    getgamesDataFromModel(games) {
+        this.games = games;
+    }
+    getPlayableGameFromModel(playableGame) {
+        this.playablegame = playableGame;
+    }
     startApp() {
         return __awaiter(this, void 0, void 0, function* () {
             this.setOptionsForUi({
@@ -28,7 +34,7 @@ class View {
                 ],
                 initial: 0
             });
-            return this.sendResponse(this.uiOptions);
+            return this.sendResponse();
         });
     }
     searchForTextAdventure() {
@@ -41,13 +47,14 @@ class View {
                 choices: this.loadChoices(),
                 style: 'default',
             });
-            return this.sendResponse(this.uiOptions);
+            return this.sendResponse();
         });
     }
+    // public async loadGame():
     setOptionsForUi(uioptions) {
         this.uiOptions = uioptions;
     }
-    sendResponse(uiOptions) {
+    sendResponse() {
         return __awaiter(this, void 0, void 0, function* () {
             let uiTask = new UserInterface_1.UserInterface(this.uiOptions);
             return uiTask.response();
@@ -61,12 +68,6 @@ class View {
         });
         return temporaryChoices;
     }
-    getgamesDataFromModel(games) {
-        this.games = games;
-    }
-    getPlayableGameFromModel(playableGame) {
-        this.playablegame = playableGame;
-    }
 }
 exports.View = View;
-//# sourceMappingURL=DisplayMessage.js.map
+//# sourceMappingURL=View.js.map

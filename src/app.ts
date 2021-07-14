@@ -18,8 +18,15 @@ import { Model } from './Model/Model';
 // console.log(msgBox);
 
 
-let x: UnregisteredUserController = new UnregisteredUserController();
-x.startApp();
+// let x: UnregisteredUserController = new UnregisteredUserController();
+// x.startApp();
+console.log(getHighesValueOfx());
+function getHighesValueOfx(): number {
+    let xPositions: number[] = [213, 21, 43, 3, 5, 1];
+
+    xPositions = xPositions.sort((n1, n2) => n1 - n2);
+    return xPositions[xPositions.length - 1];
+}
 
 
 

@@ -1,44 +1,38 @@
-import { GameDAO } from './types/gamedao.type';
-import { GamePlacesDAO } from './types/gamePlacesdao.type';
-export class GamePlaces {
-    private positionX: number;
-    private positionY: number;
-    private placename: String;
-
-
-    constructor(gamePlaces?: GamePlaces) {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+class GamePlaces {
+    constructor(gamePlaces) {
         if (gamePlaces) {
             this.positionX = gamePlaces.positionX;
             this.positionY = gamePlaces.positionY;
             this.placename = gamePlaces.placename;
+            this.startpoint = gamePlaces.startpoint;
         }
         else {
             this.positionX = 0;
             this.positionY = 0;
             this.placename = "";
+            this.startpoint = false;
         }
     }
-
-    public get valueOfX(): number {
+    get valueOfX() {
         return this.positionX;
     }
-
-    public set valueOfX(value: number) {
+    set valueOfX(value) {
         this.positionX = value;
     }
-
-    public get valueOfY(): number {
+    get valueOfY() {
         return this.positionY;
     }
-
-    public set valueOfY(value: number) {
+    set valueOfY(value) {
         this.positionY = value;
     }
-
-    public get titelOfplacename(): String {
+    get titelOfplacename() {
         return this.placename;
     }
-    public set titelOfplacename(value: String) {
+    set titelOfplacename(value) {
         this.placename = value;
     }
 }
+exports.GamePlaces = GamePlaces;
+//# sourceMappingURL=GamePlaces.js.map
